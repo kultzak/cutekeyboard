@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>icons/backspace.png</file>
+        <file>icons/caps-lock-fixed.png</file>
         <file>icons/caps-lock-off.png</file>
         <file>icons/caps-lock-on.png</file>
         <file>icons/hide-arrow.png</file>

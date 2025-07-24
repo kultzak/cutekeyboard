@@ -24,6 +24,7 @@ struct DeclarativeInputEnginePrivate {
     bool Animating;
     QTimer *AnimatingFinishedTimer{nullptr};
     int InputMode;
+    int ShiftMode;
     QRect KeyboardRectangle;
 
     bool isUppercase{false};
@@ -73,6 +74,8 @@ bool DeclarativeInputEngine::virtualKeyClick(Qt::Key key, const QString &text,
                          Qt::KeyboardModifiers(modifiers), text);
     QKeyEvent releaseEvent(QEvent::KeyRelease, key,
                            Qt::KeyboardModifiers(modifiers), text);
+
+    emit keyCommitted();
     return QCoreApplication::sendEvent(QGuiApplication::focusObject(),
                                        &pressEvent) &&
            QCoreApplication::sendEvent(QGuiApplication::focusObject(),
@@ -100,6 +103,15 @@ void DeclarativeInputEngine::setAnimating(bool Animating) {
 }
 
 void DeclarativeInputEngine::animatingFinished() { setAnimating(false); }
+
+int DeclarativeInputEngine::shiftMode() const { return d->ShiftMode; }
+
+void DeclarativeInputEngine::setShiftMode(int Mode) {
+    if (Mode != d->ShiftMode) {
+        d->ShiftMode = Mode;
+        emit shiftModeChanged();
+    }
+}
 
 int DeclarativeInputEngine::inputMode() const { return d->InputMode; }
 

@@ -39,6 +39,10 @@ INSTALLS += \
 INSTALL_QML = $$INSTALL_PREFIX/$$relative_path($$[QT_INSTALL_QML], $$[QT_INSTALL_PREFIX])
 INSTALL_PLUGINS = $$INSTALL_PREFIX/$$relative_path($$[QT_INSTALL_PLUGINS], $$[QT_INSTALL_PREFIX])
 
+#INSTALL_QML = /home/kultzak/Qt/5.15.2/gcc_64/qml
+#INSTALL_PLUGINS = /home/kultzak/Qt/5.15.2/gcc_64/plugins
+#NOTE: returns the path to the Qt installation directory for the target platform S70
+
 deployment.files = $$QML_FILES
 deployment.path = $$INSTALL_QML/QtQuick/CuteKeyboard
 target.path = $$INSTALL_PLUGINS/platforminputcontexts

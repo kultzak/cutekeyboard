@@ -23,60 +23,70 @@ Item {
             Key {
                 btnKey: Qt.Key_1
                 btnText: "1"
+                alternativeKeys: "¹"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_2
                 btnText: "2"
+                alternativeKeys: "²"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_3
                 btnText: "3"
+                alternativeKeys: "³"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_4
                 btnText: "4"
+                alternativeKeys: "⁴"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_5
                 btnText: "5"
+                alternativeKeys: "⁵"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_6
                 btnText: "6"
+                alternativeKeys: "⁶"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_7
                 btnText: "7"
+                alternativeKeys: "⁷"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_8
                 btnText: "8"
+                alternativeKeys: "⁸"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_9
                 btnText: "9"
+                alternativeKeys: "⁹"
                 inputPanelRef: inputPanel
             }
 
             Key {
                 btnKey: Qt.Key_0
                 btnText: "0"
+                alternativeKeys: "⁰"
                 inputPanelRef: inputPanel
             }
 
@@ -372,8 +382,8 @@ Item {
             }
 
             Key {
-                btnKey: 165
-                btnText: "¥"
+                btnKey: 230
+                btnText: "μ"
                 inputPanelRef: inputPanel
             }
 

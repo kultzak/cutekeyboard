@@ -16,6 +16,7 @@ Item {
     property string enterIcon: ""
     property string shiftOnIcon: "qrc:/icons/caps-lock-on.png"
     property string shiftOffIcon: "qrc:/icons/caps-lock-off.png"
+    property string shiftLockIcon: "qrc:/icons/caps-lock-fixed.png"
     property string hideKeyboardIcon: "qrc:/icons/hide-arrow.png"
     property string languageIcon: "qrc:/icons/language.png"
     property var availableLanguageLayouts: ["En"]
@@ -78,6 +79,7 @@ Item {
         InputPanel.btnTextFontFamily = btnTextFontFamily;
         InputPanel.backspaceIcon = backspaceIcon;
         InputPanel.enterIcon = enterIcon;
+        InputPanel.shiftLockIcon = shiftLockIcon;
         InputPanel.shiftOnIcon = shiftOnIcon;
         InputPanel.shiftOffIcon = shiftOffIcon;
         InputPanel.hideKeyboardIcon = hideKeyboardIcon;

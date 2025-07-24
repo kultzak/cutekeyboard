@@ -91,7 +91,7 @@ ColumnLayout {
                 inputPanelRef: inputPanel
             }
 
-            HideKey {
+            EnterKey {
                 inputPanelRef: inputPanel
             }
 
@@ -112,7 +112,7 @@ ColumnLayout {
                 inputPanelRef: inputPanel
             }
 
-            EnterKey {
+            HideKey {
                 inputPanelRef: inputPanel
             }
 

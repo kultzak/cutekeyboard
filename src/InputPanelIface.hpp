@@ -19,6 +19,7 @@ class InputPanelIface : public QObject {
     Q_PROPERTY(QString btnTextFontFamily READ btnTextFontFamily WRITE setBtnTextFontFamily NOTIFY btnTextFontFamilyChanged)
     Q_PROPERTY(QString backspaceIcon READ backspaceIcon WRITE setBackspaceIcon NOTIFY backspaceIconChanged)
     Q_PROPERTY(QString enterIcon READ enterIcon WRITE setEnterIcon NOTIFY enterIconChanged)
+    Q_PROPERTY(QString shiftLockIcon READ shiftLockIcon WRITE setShiftLockIcon NOTIFY shiftLockIconChanged)
     Q_PROPERTY(QString shiftOnIcon READ shiftOnIcon WRITE setShiftOnIcon NOTIFY shiftOnIconChanged)
     Q_PROPERTY(QString shiftOffIcon READ shiftOffIcon WRITE setShiftOffIcon NOTIFY shiftOffIconChanged)
     Q_PROPERTY(QString hideKeyboardIcon READ hideKeyboardIcon WRITE setHideKeyboardIcon NOTIFY hideKeyboardIconChanged)
@@ -51,7 +52,10 @@ class InputPanelIface : public QObject {
 
     QString enterIcon() const;
     void setEnterIcon(const QString &enterIcon);
-
+    
+    QString shiftLockIcon() const;
+    void setShiftLockIcon(const QString &shiftLockIcon);
+    
     QString shiftOnIcon() const;
     void setShiftOnIcon(const QString &shiftOnIcon);
 
@@ -79,6 +83,7 @@ class InputPanelIface : public QObject {
     void btnTextFontFamilyChanged();
     void backspaceIconChanged();
     void enterIconChanged();
+    void shiftLockIconChanged();
     void shiftOnIconChanged();
     void shiftOffIconChanged();
     void hideKeyboardIconChanged();

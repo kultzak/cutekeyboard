@@ -8,6 +8,7 @@ struct InputPanelIface::InputPanelIfacePrivate {
     QString btnTextFontFamily{};
     QString backspaceIcon{};
     QString enterIcon{};
+    QString shiftLockIcon{};
     QString shiftOnIcon{};
     QString shiftOffIcon{};
     QString hideKeyboardIcon{};
@@ -96,6 +97,16 @@ void InputPanelIface::setEnterIcon(const QString &enterIcon) {
         emit enterIconChanged();
     }
 }
+
+QString InputPanelIface::shiftLockIcon() const { return pimpl->shiftLockIcon; }
+
+void InputPanelIface::setShiftLockIcon(const QString &shiftLockIcon) {
+    if (pimpl->shiftLockIcon != shiftLockIcon) {
+        pimpl->shiftLockIcon = shiftLockIcon;
+        emit shiftLockIconChanged();
+    }
+}
+
 
 QString InputPanelIface::shiftOnIcon() const { return pimpl->shiftOnIcon; }
 

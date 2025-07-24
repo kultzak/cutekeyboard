@@ -31,6 +31,8 @@ class DeclarativeInputEngine : public QObject {
     Q_PROPERTY(int inputMode READ inputMode WRITE setInputMode NOTIFY inputModeChanged FINAL)
     Q_PROPERTY(bool uppercase READ isUppercase WRITE setUppercase NOTIFY isUppercaseChanged)
     Q_PROPERTY(bool symbolMode READ isSymbolMode WRITE setSymbolMode NOTIFY isSymbolModeChanged)
+    Q_PROPERTY(int shiftMode READ shiftMode WRITE setShiftMode NOTIFY shiftModeChanged)
+
     // clang-format on
 
    public:
@@ -91,6 +93,10 @@ class DeclarativeInputEngine : public QObject {
      * transitioning states.
      */
     void setAnimating(bool Animating);
+
+    int shiftMode() const;
+
+    void setShiftMode(int Mode);
 
     /**
      * Returns the current input mode
@@ -158,8 +164,12 @@ class DeclarativeInputEngine : public QObject {
      */
     void inputModeChanged();
 
+    void shiftModeChanged();
+
     void isUppercaseChanged();
     void isSymbolModeChanged();
+
+    void keyCommitted();
 
    private:
     DeclarativeInputEnginePrivate *d;

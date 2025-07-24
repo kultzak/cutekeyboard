@@ -11,6 +11,7 @@
 #include "EnterKeyActionAttachedType.hpp"
 #include "InputPanelIface.hpp"
 #include <QQmlEngine>
+#include <QDebug>
 
 /**
  * Private data class for VirtualKeyboardInputContext
@@ -108,6 +109,7 @@ void VirtualKeyboardInputContext::setFocusObject(QObject *object) {
                                          Qt::ImhFormattedNumbersOnly;
 
     if (!object) {
+        // hideInputPanel(); // it hides when focus is lost
         return;
     }
 
@@ -141,12 +143,12 @@ void VirtualKeyboardInputContext::setFocusObject(QObject *object) {
         }
     }
 
-    visibleConnection = std::make_shared<QMetaObject::Connection>(QObject::connect(d->FocusItem, &QQuickItem::visibleChanged, this, [&](){
-        if(!d->FocusItem->isVisible())
-            hideInputPanel();
-        else
-            showInputPanel();
-    }));
+    // visibleConnection = std::make_shared<QMetaObject::Connection>(QObject::connect(d->FocusItem, &QQuickItem::visibleChanged, this, [&](){
+    //     if(!d->FocusItem->isVisible())
+    //         hideInputPanel();
+    //     else
+    //         showInputPanel();
+    // }));
 
     emit inputItemChanged();
 
@@ -187,16 +189,16 @@ void VirtualKeyboardInputContext::ensureFocusedObjectVisible() {
     QRectF FocusItemRect(0, 0, d->FocusItem->width(), d->FocusItem->height());
     FocusItemRect = d->Flickable->mapRectFromItem(d->FocusItem, FocusItemRect);
     d->FlickableContentScrollAnimation->setTargetObject(d->Flickable);
-    if (FocusItemRect.bottom() >= d->Flickable->height()) {
-        auto ContentY = d->Flickable->contentY() +
-                        (FocusItemRect.bottom() - d->Flickable->height()) + 20;
-        d->FlickableContentScrollAnimation->setEndValue(ContentY);
-        d->FlickableContentScrollAnimation->start();
-    } else if (FocusItemRect.top() < 0) {
-        auto ContentY = d->Flickable->contentY() + FocusItemRect.top() - 20;
-        d->FlickableContentScrollAnimation->setEndValue(ContentY);
-        d->FlickableContentScrollAnimation->start();
-    }
+        // if (FocusItemRect.bottom() >= d->Flickable->height()) {
+        //     auto ContentY = d->Flickable->contentY() +
+        //                     (FocusItemRect.bottom() - d->Flickable->height()) + 20;
+        //     d->FlickableContentScrollAnimation->setEndValue(ContentY);
+        //     d->FlickableContentScrollAnimation->start();
+        // } else if (FocusItemRect.top() < 0) {
+        //     auto ContentY = d->Flickable->contentY() + FocusItemRect.top() - 20;
+        //     d->FlickableContentScrollAnimation->setEndValue(ContentY);
+        //     d->FlickableContentScrollAnimation->start();
+        // }
 }
 
 QObject *VirtualKeyboardInputContext::inputEngineProvider(

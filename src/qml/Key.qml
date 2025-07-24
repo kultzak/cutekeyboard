@@ -18,8 +18,9 @@ Button {
     property var alternativeKeys: []
     property var inputPanelRef
     property alias repeatable: key.autoRepeat
-    property bool showPreview: true
+    property bool showPreview: false
     property bool functionKey: false
+    property real btnFontSize: key.height * 0.4
 
     focusPolicy: Qt.NoFocus
     Layout.minimumWidth: key.implicitWidth
@@ -44,8 +45,9 @@ Button {
         }
     }
     onReleased: {
-        if (!functionKey)
+        if (!functionKey){
             InputEngine.virtualKeyClick(btnKey, InputEngine.uppercase ? btnText.toUpperCase() : btnText, InputEngine.uppercase ? Qt.ShiftModifier : 0);
+        }
 
     }
 
@@ -83,7 +85,7 @@ Button {
             font {
                 family: txtFont
                 weight: Font.Normal
-                pixelSize: key.height * 0.4
+                pixelSize: btnFontSize
                 capitalization: InputEngine.uppercase ? Font.AllUppercase : Font.MixedCase
             }
 
