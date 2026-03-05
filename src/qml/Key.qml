@@ -22,6 +22,7 @@ Button {
     property bool functionKey: false
     property real btnFontSize: key.height * 0.4
 
+    objectName: (inputPanelRef ? inputPanelRef.objectName : "") + "Key_" + (btnDisplayedText ? btnDisplayedText : btnText)
     focusPolicy: Qt.NoFocus
     Layout.minimumWidth: key.implicitWidth
     Layout.minimumHeight: key.implicitHeight
@@ -45,10 +46,16 @@ Button {
         }
     }
     onReleased: {
-        if (!functionKey){
+        if (!functionKey) {
             InputEngine.virtualKeyClick(btnKey, InputEngine.uppercase ? btnText.toUpperCase() : btnText, InputEngine.uppercase ? Qt.ShiftModifier : 0);
+            var autoCapUp = false;
+            if (InputEngine.autoCapitalize && !InputContext.isPasswordField()) {
+                var surrounding = InputContext.surroundingText();
+                autoCapUp = surrounding.length === 0 || /[.!?] $/.test(surrounding);
+            }
+            if (!InputEngine.persistentUppercase || autoCapUp)
+                InputEngine.uppercase = autoCapUp;
         }
-
     }
 
     Timer {

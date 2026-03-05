@@ -20,9 +20,11 @@ Item {
     property string hideKeyboardIcon: "qrc:/icons/hide-arrow.png"
     property string languageIcon: "qrc:/icons/language.png"
     property var availableLanguageLayouts: ["En"]
-
-    /*! \internal */
-    readonly property bool __isRootItem: inputPanel.parent !== null && inputPanel.parent.parent === null
+    property alias emptySpaceBar: layoutLoader.emptySpaceBar
+    property bool persistentShift: true
+    property bool autoCapitalize: false
+    //! \internal
+    readonly property bool __isRootItem: root.parent !== null && root.parent.parent === null
 
     function showKeyPopup(keyButton) {
         keyPopup.popup(keyButton, root);
@@ -65,10 +67,10 @@ Item {
 
     }
     onLanguageLayoutChanged: loadLettersLayout()
+    onPersistentShiftChanged: InputEngine.persistentUppercase = persistentShift
+    onAutoCapitalizeChanged: InputEngine.autoCapitalize = autoCapitalize
     Component.onCompleted: {
-
-        InputContext.registerInputPanel(root)
-
+        InputContext.registerInputPanel(root);
         if (availableLanguageLayouts.length == 0)
             availableLanguageLayouts = ["En"];
 
@@ -86,6 +88,8 @@ Item {
         InputPanel.languageIcon = languageIcon;
         InputPanel.availableLanguageLayouts = availableLanguageLayouts;
         InputPanel.languageLayout = languageLayout;
+        InputEngine.persistentUppercase = persistentShift;
+        InputEngine.autoCapitalize = autoCapitalize;
         loadLettersLayout();
     }
 
@@ -129,6 +133,8 @@ Item {
         Loader {
             id: layoutLoader
 
+            // display empty space bar
+            property bool emptySpaceBar: false
             // lang description only needed for layouts that share a file
             property string langDescription
             // space identifier for the correct translation of the word "space"

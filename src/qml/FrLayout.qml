@@ -83,6 +83,8 @@ ColumnLayout {
         property real keyWeight: 160
 
         Key {
+            objectName: "" // invisible key to align the row
+            enabled: false
             weight: 56
             functionKey: true
             showPreview: false
@@ -160,6 +162,7 @@ ColumnLayout {
         property real keyWeight: 156
 
         ShiftKey {
+            objectName: inputPanel.objectName + "Key_Shift_Left"
         }
 
         Key {
@@ -218,6 +221,7 @@ ColumnLayout {
         }
 
         ShiftKey {
+            objectName: inputPanel.objectName + "Key_Shift_Right"
             weight: 204
         }
 
@@ -228,17 +232,18 @@ ColumnLayout {
 
         SymbolKey {
             weight: availableLanguageLayouts.length === 1 ? 217 : 108.5
+            inputPanelRef: inputPanel
         }
 
         LanguageKey {
             visible: availableLanguageLayouts.length > 1
             weight: 108.5
+            inputPanelRef: inputPanel
         }
 
         SpaceKey {
             weight: 1168
             inputPanelRef: inputPanel
-            btnDisplayedText: langDescription
         }
 
         Key {
@@ -249,6 +254,7 @@ ColumnLayout {
 
         HideKey {
             weight: 205
+            inputPanelRef: inputPanel
         }
 
     }

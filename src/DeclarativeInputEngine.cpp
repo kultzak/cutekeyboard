@@ -29,6 +29,8 @@ struct DeclarativeInputEnginePrivate {
 
     bool isUppercase{false};
     bool symbolMode{false};
+    bool persistentUppercase{true};
+    bool autoCapitalize{false};
     QHash<DeclarativeInputEngine::InputLayouts, LayoutData> layoutFiles = {
         {DeclarativeInputEngine::En, {"EnLayout", "English"}},
         {DeclarativeInputEngine::Fr, {"FrLayout", "Français"}},
@@ -40,6 +42,8 @@ struct DeclarativeInputEnginePrivate {
         {DeclarativeInputEngine::Cs, {"CsLayout", "Čeština"}},
         {DeclarativeInputEngine::El, {"ElLayout", "Ελληνικός"}},
         {DeclarativeInputEngine::Pl, {"PlLayout", "Polski"}},
+        {DeclarativeInputEngine::Da, {"DaLayout", "Dansk"}},
+        {DeclarativeInputEngine::Fi, {"FiLayout", "Suomi"}},
         {DeclarativeInputEngine::Hr, {"LtSrHrBsLayout", "Hrvatski"}},
         {DeclarativeInputEngine::CyBs, {"CySrBsLayout", "Босански"}},
         {DeclarativeInputEngine::LtBs, {"LtSrHrBsLayout", "Bosanski"}},
@@ -137,6 +141,28 @@ void DeclarativeInputEngine::setSymbolMode(bool symbolMode) {
     if (d->symbolMode != symbolMode) {
         d->symbolMode = symbolMode;
         emit isSymbolModeChanged();
+    }
+}
+
+bool DeclarativeInputEngine::isPersistentUppercase() const {
+    return d->persistentUppercase;
+}
+
+void DeclarativeInputEngine::setPersistentUppercase(bool persistentUppercase) {
+    if (d->persistentUppercase != persistentUppercase) {
+        d->persistentUppercase = persistentUppercase;
+        emit isPersistentUppercaseChanged();
+    }
+}
+
+bool DeclarativeInputEngine::isAutoCapitalize() const {
+    return d->autoCapitalize;
+}
+
+void DeclarativeInputEngine::setAutoCapitalize(bool autoCapitalize) {
+    if (d->autoCapitalize != autoCapitalize) {
+        d->autoCapitalize = autoCapitalize;
+        emit isAutoCapitalizeChanged();
     }
 }
 

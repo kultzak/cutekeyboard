@@ -33,6 +33,8 @@ class DeclarativeInputEngine : public QObject {
     Q_PROPERTY(bool symbolMode READ isSymbolMode WRITE setSymbolMode NOTIFY isSymbolModeChanged)
     Q_PROPERTY(int shiftMode READ shiftMode WRITE setShiftMode NOTIFY shiftModeChanged)
 
+    Q_PROPERTY(bool persistentUppercase READ isPersistentUppercase WRITE setPersistentUppercase NOTIFY isPersistentUppercaseChanged)
+    Q_PROPERTY(bool autoCapitalize READ isAutoCapitalize WRITE setAutoCapitalize NOTIFY isAutoCapitalizeChanged)
     // clang-format on
 
    public:
@@ -50,6 +52,8 @@ class DeclarativeInputEngine : public QObject {
         Cs,
         El,
         Pl,
+        Da,
+        Fi,
         Sv,
         Hr,
         CyBs,
@@ -116,6 +120,12 @@ class DeclarativeInputEngine : public QObject {
     bool isSymbolMode() const;
     void setSymbolMode(bool symbolMode);
 
+    bool isPersistentUppercase() const;
+    void setPersistentUppercase(bool persistentUppercase);
+
+    bool isAutoCapitalize() const;
+    void setAutoCapitalize(bool autoCapitalize);
+
     Q_INVOKABLE bool inputLayoutValid(const QString &layout) const;
 
     /**
@@ -167,9 +177,14 @@ class DeclarativeInputEngine : public QObject {
     void shiftModeChanged();
 
     void isUppercaseChanged();
+
     void isSymbolModeChanged();
 
     void keyCommitted();
+
+    void isPersistentUppercaseChanged();
+
+    void isAutoCapitalizeChanged();
 
    private:
     DeclarativeInputEnginePrivate *d;

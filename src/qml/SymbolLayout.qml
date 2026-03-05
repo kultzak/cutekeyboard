@@ -100,6 +100,8 @@ Item {
             property real keyWeight: 160
 
             Key {
+                objectName: "" // invisible key to align the row
+                enabled: false
                 weight: 56
                 functionKey: true
                 showPreview: false
@@ -176,6 +178,7 @@ Item {
                 showPreview: false
                 functionKey: true
                 onClicked: secondPage = !secondPage
+                inputPanelRef: inputPanel
             }
 
             Key {
@@ -240,6 +243,7 @@ Item {
                 showPreview: false
                 functionKey: true
                 onClicked: secondPage = !secondPage
+                inputPanelRef: inputPanel
             }
 
         }
@@ -249,12 +253,13 @@ Item {
 
             SymbolKey {
                 weight: 217
+                inputPanelRef: inputPanel
             }
 
             SpaceKey {
                 weight: 1168
                 inputPanelRef: inputPanel
-                btnDisplayedText: spaceIdentifier
+                showLanguageDescription: false
             }
 
             Key {
@@ -265,6 +270,7 @@ Item {
 
             HideKey {
                 weight: 205
+                inputPanelRef: inputPanel
             }
 
         }
@@ -351,6 +357,8 @@ Item {
             property real keyWeight: 160
 
             Key {
+                objectName: "" // invisible key to align the row
+                enabled: false
                 weight: 56
                 functionKey: true
                 showPreview: false
@@ -427,6 +435,7 @@ Item {
                 showPreview: false
                 functionKey: true
                 onClicked: secondPage = !secondPage
+                inputPanelRef: inputPanel
             }
 
             Key {
@@ -489,6 +498,7 @@ Item {
                 showPreview: false
                 functionKey: true
                 onClicked: secondPage = !secondPage
+                inputPanelRef: inputPanel
             }
 
         }
@@ -498,12 +508,13 @@ Item {
 
             SymbolKey {
                 weight: 217
+                inputPanelRef: inputPanel
             }
 
             SpaceKey {
                 weight: 1168
                 inputPanelRef: inputPanel
-                btnDisplayedText: spaceIdentifier
+                showLanguageDescription: false
             }
 
             Key {
@@ -514,6 +525,7 @@ Item {
 
             HideKey {
                 weight: 205
+                inputPanelRef: inputPanel
             }
 
         }

@@ -22,7 +22,7 @@ ColumnLayout {
         Key {
             btnKey: Qt.Key_E
             btnText: "e"
-            alternativeKeys: "èé"
+            alternativeKeys: "éèêë"
             inputPanelRef: inputPanel
         }
 
@@ -47,27 +47,33 @@ ColumnLayout {
         Key {
             btnKey: Qt.Key_U
             btnText: "u"
-            alternativeKeys: "ùú"
+            alternativeKeys: "úùûü"
             inputPanelRef: inputPanel
         }
 
         Key {
             btnKey: Qt.Key_I
             btnText: "i"
-            alternativeKeys: "ìí"
+            alternativeKeys: "íìîï"
             inputPanelRef: inputPanel
         }
 
         Key {
             btnKey: Qt.Key_O
             btnText: "o"
-            alternativeKeys: "òó"
+            alternativeKeys: "óòôö"
             inputPanelRef: inputPanel
         }
 
         Key {
             btnKey: Qt.Key_P
             btnText: "p"
+            inputPanelRef: inputPanel
+        }
+
+        Key {
+            btnKey: Qt.Key_Aring
+            btnText: "å"
             inputPanelRef: inputPanel
         }
 
@@ -81,8 +87,6 @@ ColumnLayout {
         property real keyWeight: 160
 
         Key {
-            objectName: "" // invisible key to align the row
-            enabled: false
             weight: 56
             functionKey: true
             showPreview: false
@@ -92,7 +96,7 @@ ColumnLayout {
         Key {
             btnKey: Qt.Key_A
             btnText: "a"
-            alternativeKeys: "àá"
+            alternativeKeys: "áàâä"
             inputPanelRef: inputPanel
         }
 
@@ -144,6 +148,18 @@ ColumnLayout {
             inputPanelRef: inputPanel
         }
 
+        Key {
+            btnKey: Qt.Key_Odiaeresis
+            btnText: "ö"
+            inputPanelRef: inputPanel
+        }
+
+        Key {
+            btnKey: Qt.Key_Adiaeresis
+            btnText: "ä"
+            inputPanelRef: inputPanel
+        }
+
         EnterKey {
             weight: 283
             inputPanelRef: inputPanel
@@ -155,7 +171,6 @@ ColumnLayout {
         property real keyWeight: 156
 
         ShiftKey {
-            objectName: inputPanel.objectName + "Key_Shift_Left"
         }
 
         Key {
@@ -212,8 +227,13 @@ ColumnLayout {
             inputPanelRef: inputPanel
         }
 
+        Key {
+            btnKey: Qt.Key_Minus
+            btnText: "-"
+            inputPanelRef: inputPanel
+        }
+
         ShiftKey {
-            objectName: inputPanel.objectName + "Key_Shift_Right"
             weight: 204
         }
 
@@ -224,13 +244,11 @@ ColumnLayout {
 
         SymbolKey {
             weight: availableLanguageLayouts.length === 1 ? 217 : 108.5
-            inputPanelRef: inputPanel
         }
 
         LanguageKey {
             visible: availableLanguageLayouts.length > 1
             weight: 108.5
-            inputPanelRef: inputPanel
         }
 
         SpaceKey {
@@ -246,7 +264,6 @@ ColumnLayout {
 
         HideKey {
             weight: 205
-            inputPanelRef: inputPanel
         }
 
     }
