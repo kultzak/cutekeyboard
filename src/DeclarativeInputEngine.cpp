@@ -59,7 +59,8 @@ DeclarativeInputEnginePrivate::DeclarativeInputEnginePrivate(
     DeclarativeInputEngine *_public)
     : _this(_public),
       Animating(false),
-      InputMode(DeclarativeInputEngine::Letters) {}
+      InputMode(DeclarativeInputEngine::Letters),
+      ShiftMode(0) {}
 
 DeclarativeInputEngine::DeclarativeInputEngine(QObject *parent)
     : QObject(parent), d(new DeclarativeInputEnginePrivate(this)) {
